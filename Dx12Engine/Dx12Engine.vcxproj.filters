@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{6902c085-de8a-4703-88f5-9670bf4d6650}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine">
+      <UniqueIdentifier>{1e165dbb-5465-4585-a542-7e6ee48889ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\os">
+      <UniqueIdentifier>{589c435c-7a05-47d1-9ca3-6846c917232d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\os\sdl">
+      <UniqueIdentifier>{3d9c4851-e21d-4e3f-8e0f-e61a8707180b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utils">
+      <UniqueIdentifier>{3760bcdc-c216-479a-9b65-8b229722327d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{b414a71a-601a-4b49-914f-553608067e79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\render_graph">
+      <UniqueIdentifier>{974370be-4f7e-4ea0-b27a-f71813750703}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\render_graph\core">
+      <UniqueIdentifier>{082e1c30-5e01-46f1-bc1b-86d048e1c17a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\render_graph\core\dx12">
+      <UniqueIdentifier>{81aff6fb-58f7-4c19-8917-e972f378dd93}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="initializer.ixx">
+      <Filter>src\engine\os\sdl</Filter>
+    </ClCompile>
+    <ClCompile Include="window.ixx">
+      <Filter>src\engine\os\sdl</Filter>
+    </ClCompile>
+    <ClCompile Include="noncopiable.ixx">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="main.ixx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_factory.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_device.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="core_base.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="core_adapter_properties.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_base.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="core_device.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_command_queue.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="core_command_queue.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_descriptor_pool.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="core_descriptor.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_descriptor.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_swapchain.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="core_swapchain.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="core_command_buffer.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_command_buffer.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="core_command_bundle.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_command_bundle.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="core_pso.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_pso.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="core_shader_bytecode.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_shader_bytecode.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="core_shader_compiler.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_shader_compiler.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="core_pipeline_layout.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_pipeline_layout.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="core_resource_allocator.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_resource_allocator.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="core_buffer.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_buffer.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_d3dma_ref.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="core_rtv.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_rtv.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="core_resource.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_resource_holder.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="core_resource_holder.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="core_vertex_buffer_view.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_vertex_buffer_view.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="triangle_test.ixx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="dxr_test.ixx">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="core_descriptor_pool.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_descriptor_special_allocator.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_descriptor_allocator.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_descriptor_ref.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_descriptor_heap_builder.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_fence.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="core_fence.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_tlas_builder.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="core_tlas_builder.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="core_image.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_image.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_image_uav.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="core_image_uav.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dx12_shaders_table.ixx">
+      <Filter>src\engine\render_graph\core\dx12</Filter>
+    </ClCompile>
+    <ClCompile Include="core_shaders_table.ixx">
+      <Filter>src\engine\render_graph\core</Filter>
+    </ClCompile>
+    <ClCompile Include="dxr_inline_test.ixx">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="shaders\VertexShader.hlsl">
+      <Filter>shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="shaders\PixelShader.hlsl">
+      <Filter>shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="shaders\InlineRtShader.hlsl">
+      <Filter>shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="shaders\RtShader.hlsl">
+      <Filter>shaders</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\VsOut.hlsli">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+</Project>

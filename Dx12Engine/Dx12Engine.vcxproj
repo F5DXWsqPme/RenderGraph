@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug-Asan|Win32">
+      <Configuration>Debug-Asan</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug-Asan|x64">
+      <Configuration>Debug-Asan</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{68eccf3b-44de-4eaf-b965-f61845088c14}</ProjectGuid>
+    <RootNamespace>Dx12Engine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Dx12Engine</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Asan|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <EnableASAN>false</EnableASAN>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Asan|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <EnableASAN>true</EnableASAN>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <EnableASAN>false</EnableASAN>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Asan|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Asan|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <VcpkgUseStatic>false</VcpkgUseStatic>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Asan|x64'" Label="Vcpkg">
+    <VcpkgUseStatic>false</VcpkgUseStatic>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <VcpkgUseStatic>false</VcpkgUseStatic>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <FxCompile>
+      <ShaderModel>6.5</ShaderModel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </FxCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Asan|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <FxCompile>
+      <ShaderModel>6.5</ShaderModel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </FxCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <FxCompile>
+      <ShaderModel>6.5</ShaderModel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </FxCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS; BOOST_ALL_DYN_LINK;BOOST_USE_WINAPI_VERSION=0x0600;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <EnableModules>true</EnableModules>
+      <AdditionalIncludeDirectories>C:\oleg\projects\Dx12Setup\Dx12EngineVs\Dx12Engine\ext\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d12.lib;dxgi.lib;d3dcompiler.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <FxCompile>
+      <ShaderModel>6.5</ShaderModel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <ObjectFileOutput>shaders-build/%(Filename).cso</ObjectFileOutput>
+      <AdditionalOptions>&lt;разные параметры&gt; -Qstrip_reflect</AdditionalOptions>
+    </FxCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Asan|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS; BOOST_ALL_DYN_LINK;BOOST_USE_WINAPI_VERSION=0x0600;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <EnableModules>true</EnableModules>
+      <AdditionalIncludeDirectories>C:\oleg\projects\Dx12Setup\Dx12EngineVs\Dx12Engine\ext\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d12.lib;dxgi.lib;d3dcompiler.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <FxCompile>
+      <ShaderModel>6.5</ShaderModel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <ObjectFileOutput>shaders-build/%(Filename).cso</ObjectFileOutput>
+      <AdditionalOptions>/Qembed_debug /Qstrip_reflect</AdditionalOptions>
+    </FxCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS; BOOST_ALL_DYN_LINK;BOOST_USE_WINAPI_VERSION=0x0600;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <EnableModules>true</EnableModules>
+      <AdditionalIncludeDirectories>C:\oleg\projects\Dx12Setup\Dx12EngineVs\Dx12Engine\ext\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d12.lib;dxgi.lib;d3dcompiler.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <FxCompile>
+      <ShaderModel>6.5</ShaderModel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <ObjectFileOutput>shaders-build/%(Filename).cso</ObjectFileOutput>
+      <AdditionalOptions>&lt;разные параметры&gt; -Qstrip_reflect</AdditionalOptions>
+    </FxCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="core_buffer.ixx" />
+    <ClCompile Include="core_fence.ixx" />
+    <ClCompile Include="core_image.ixx" />
+    <ClCompile Include="core_image_uav.ixx" />
+    <ClCompile Include="core_pipeline_layout.ixx" />
+    <ClCompile Include="core_resource_allocator.ixx" />
+    <ClCompile Include="core_resource_holder.ixx" />
+    <ClCompile Include="core_rtv.ixx" />
+    <ClCompile Include="core_shaders_table.ixx" />
+    <ClCompile Include="core_shader_compiler.ixx" />
+    <ClCompile Include="core_tlas_builder.ixx" />
+    <ClCompile Include="core_vertex_buffer_view.ixx" />
+    <ClCompile Include="dx12_buffer.ixx" />
+    <ClCompile Include="dx12_command_bundle.ixx" />
+    <ClCompile Include="core_adapter_properties.ixx" />
+    <ClCompile Include="core_base.ixx" />
+    <ClCompile Include="core_command_buffer.ixx" />
+    <ClCompile Include="core_command_bundle.ixx" />
+    <ClCompile Include="core_command_queue.ixx" />
+    <ClCompile Include="core_descriptor.ixx" />
+    <ClCompile Include="dx12_descriptor_allocator.ixx" />
+    <ClCompile Include="dx12_descriptor_heap_builder.ixx" />
+    <ClCompile Include="dx12_descriptor_ref.ixx" />
+    <ClCompile Include="dx12_descriptor_special_allocator.ixx" />
+    <ClCompile Include="core_descriptor_pool.ixx" />
+    <ClCompile Include="core_device.ixx" />
+    <ClCompile Include="core_swapchain.ixx" />
+    <ClCompile Include="dx12_base.ixx" />
+    <ClCompile Include="dx12_command_buffer.ixx" />
+    <ClCompile Include="dx12_command_queue.ixx" />
+    <ClCompile Include="dx12_d3dma_ref.ixx" />
+    <ClCompile Include="dx12_descriptor.ixx" />
+    <ClCompile Include="dx12_descriptor_pool.ixx" />
+    <ClCompile Include="dx12_device.ixx" />
+    <ClCompile Include="dx12_factory.ixx" />
+    <ClCompile Include="dx12_fence.ixx" />
+    <ClCompile Include="dx12_image.ixx" />
+    <ClCompile Include="dx12_image_uav.ixx" />
+    <ClCompile Include="dx12_pipeline_layout.ixx" />
+    <ClCompile Include="dx12_pso.ixx" />
+    <ClCompile Include="dx12_resource_allocator.ixx" />
+    <ClCompile Include="dx12_resource_holder.ixx" />
+    <ClCompile Include="dx12_rtv.ixx" />
+    <ClCompile Include="dx12_shaders_table.ixx" />
+    <ClCompile Include="dx12_shader_bytecode.ixx" />
+    <ClCompile Include="dx12_shader_compiler.ixx" />
+    <ClCompile Include="dx12_swapchain.ixx" />
+    <ClCompile Include="dx12_tlas_builder.ixx" />
+    <ClCompile Include="dx12_vertex_buffer_view.ixx" />
+    <ClCompile Include="dxr_inline_test.ixx" />
+    <ClCompile Include="dxr_test.ixx" />
+    <ClCompile Include="initializer.ixx" />
+    <ClCompile Include="main.ixx" />
+    <ClCompile Include="noncopiable.ixx" />
+    <ClCompile Include="core_pso.ixx" />
+    <ClCompile Include="core_shader_bytecode.ixx" />
+    <ClCompile Include="core_resource.ixx" />
+    <ClCompile Include="triangle_test.ixx" />
+    <ClCompile Include="window.ixx" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="shaders\InlineRtShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compute</ShaderType>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/Qembed_debug %(AdditionalOptions)</AdditionalOptions>
+    </FxCompile>
+    <FxCompile Include="shaders\PixelShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug-Asan|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug-Asan|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/Qembed_debug %(AdditionalOptions)</AdditionalOptions>
+    </FxCompile>
+    <FxCompile Include="shaders\RtShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Library</ShaderType>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/Qembed_debug %(AdditionalOptions)</AdditionalOptions>
+    </FxCompile>
+    <FxCompile Include="shaders\VertexShader.hlsl">
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug-Asan|x64'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug-Asan|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/Qembed_debug %(AdditionalOptions)</AdditionalOptions>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="shaders\VsOut.hlsli" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="packages\WinPixEventRuntime.1.0.220810001\build\WinPixEventRuntime.targets" Condition="Exists('packages\WinPixEventRuntime.1.0.220810001\build\WinPixEventRuntime.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\WinPixEventRuntime.1.0.220810001\build\WinPixEventRuntime.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\WinPixEventRuntime.1.0.220810001\build\WinPixEventRuntime.targets'))" />
+  </Target>
+</Project>
