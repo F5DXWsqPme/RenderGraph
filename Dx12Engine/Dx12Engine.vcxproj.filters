@@ -28,6 +28,18 @@
     <Filter Include="src\engine\render_graph\core\dx12">
       <UniqueIdentifier>{81aff6fb-58f7-4c19-8917-e972f378dd93}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ext">
+      <UniqueIdentifier>{254cc9c6-e104-45e4-8fa2-6f4aa12019db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ext\d3dx12">
+      <UniqueIdentifier>{49c6d4fd-c647-4b80-83f6-27b72d840265}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ext\stb">
+      <UniqueIdentifier>{d9c63263-d222-4792-b7b9-22112141a006}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\engine\geometry">
+      <UniqueIdentifier>{4a1a8f76-a21e-4e02-b902-702b35f8422b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="initializer.ixx">
@@ -207,6 +219,21 @@
     <ClCompile Include="dxr_inline_test.ixx">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="picture.ixx">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="stb_image_implementation.cpp">
+      <Filter>src\ext\stb</Filter>
+    </ClCompile>
+    <ClCompile Include="grid.ixx">
+      <Filter>src\engine\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="regular_grid.ixx">
+      <Filter>src\engine\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="heightmap_regular_grid.ixx">
+      <Filter>src\engine\geometry</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="shaders\VertexShader.hlsl">
@@ -227,5 +254,10 @@
       <Filter>shaders</Filter>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\RenderGraph\Dx12Engine\ext\include\d3dx12.h">
+      <Filter>src\ext\d3dx12</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

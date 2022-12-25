@@ -12,16 +12,17 @@ import engine.os.sdl.window;
 import engine.render.core.dx12.base;
 import engine.render.core.dx12.shader_compiler;
 import engine.render.core.resource;
+import engine.geometry.heightmap_regular_grid;
 
 export void RunInlineDxrTest()
 {
-  auto dll = PIXLoadLatestWinPixGpuCapturerLibrary();
-  PIXCaptureParameters params = {};
-  params.GpuCaptureParameters.FileName = L"C:/oleg/Capture.wpix";
-  if (!SUCCEEDED(PIXBeginCapture(PIX_CAPTURE_GPU, &params)))
-  {
-    return;
-  };
+  //auto dll = PIXLoadLatestWinPixGpuCapturerLibrary();
+  //PIXCaptureParameters params = {};
+  //params.GpuCaptureParameters.FileName = L"Capture.wpix";
+  //if (!SUCCEEDED(PIXBeginCapture(PIX_CAPTURE_GPU, &params)))
+  //{
+  //  return;
+  //};
 
   sdl::Window wnd("Engn", 800, 600);
   dx12::Base base(true);
@@ -42,40 +43,34 @@ export void RunInlineDxrTest()
   std::unique_ptr<core::DescriptorPool> descriptorPool{device->CreateDescriptorPool(core::Descriptor::HEAP_TYPE_CBV_SRV_UAV, (int)ranges.size())};
   std::unique_ptr<core::Fence> fence{device->CreateFence()};
 
-  const float vertexData[] =
-  {
-    0, 0, 0.1f,
-    0.5, 0.5f, 0.1f,
-    0.7f, 0.f, 0.1f,
-  };
-  std::unique_ptr<core::Buffer> vertexBuffer{resourceAllocator->CreateBuffer(sizeof(vertexData), false)};
-  std::unique_ptr<core::Buffer> uploadVertexBuffer{resourceAllocator->CreateBuffer(sizeof(vertexData), true)};
-  void* mappedMemory = uploadVertexBuffer->Map(std::pair<size_t, size_t>(0, sizeof(vertexData)));
-  memcpy(mappedMemory, vertexData, sizeof(vertexData));
+  constexpr int sizeX = 100;
+  constexpr int sizeY = 100;
+  const geometry::HeightmapRegularGrid grid{sizeX, sizeY, 0.01f, 0.01f, std::filesystem::path("heightmaps") / "height.png"};
+  
+  std::unique_ptr<core::Buffer> vertexBuffer{resourceAllocator->CreateBuffer(grid.GetVertexDataSize(), false)};
+  std::unique_ptr<core::Buffer> uploadVertexBuffer{resourceAllocator->CreateBuffer(grid.GetVertexDataSize(), true)};
+  void* mappedMemory = uploadVertexBuffer->Map(std::pair<size_t, size_t>(0, grid.GetVertexDataSize()));
+  memcpy(mappedMemory, grid.GetVertexData(), grid.GetVertexDataSize());
   uploadVertexBuffer->Unmap();
 
-  const uint32_t indexData[] =
-  {
-    0, 1, 2
-  };
-  std::unique_ptr<core::Buffer> indexBuffer{resourceAllocator->CreateBuffer(sizeof(indexData), false)};
-  std::unique_ptr<core::Buffer> uploadIndexBuffer{resourceAllocator->CreateBuffer(sizeof(indexData), true)};
-  mappedMemory = uploadIndexBuffer->Map(std::pair<size_t, size_t>(0, sizeof(indexData)));
-  memcpy(mappedMemory, indexData, sizeof(indexData));
+  std::unique_ptr<core::Buffer> indexBuffer{resourceAllocator->CreateBuffer(grid.GetIndexDataSize(), false)};
+  std::unique_ptr<core::Buffer> uploadIndexBuffer{resourceAllocator->CreateBuffer(grid.GetIndexDataSize(), true)};
+  mappedMemory = uploadIndexBuffer->Map(std::pair<size_t, size_t>(0, grid.GetIndexDataSize()));
+  memcpy(mappedMemory, grid.GetIndexData(), grid.GetIndexDataSize());
   uploadIndexBuffer->Unmap();
 
   commandBundle->Begin();
 
   commandBundle->Barrier(*vertexBuffer, core::Resource::STATE_COPY_DST);
-  commandBundle->CopyBufferRegion(*vertexBuffer, 0, *uploadVertexBuffer, 0, sizeof(vertexData));
+  commandBundle->CopyBufferRegion(*vertexBuffer, 0, *uploadVertexBuffer, 0, grid.GetVertexDataSize());
   commandBundle->Barrier(*vertexBuffer, core::Resource::STATE_COMMON);
 
   commandBundle->Barrier(*indexBuffer, core::Resource::STATE_COPY_DST);
-  commandBundle->CopyBufferRegion(*indexBuffer, 0, *uploadIndexBuffer, 0, sizeof(indexData));
+  commandBundle->CopyBufferRegion(*indexBuffer, 0, *uploadIndexBuffer, 0, grid.GetIndexDataSize());
   commandBundle->Barrier(*indexBuffer, core::Resource::STATE_COMMON);
   
   std::unique_ptr<core::TlasBuilder> tlasBuilder{device->CreateTlasBuilder(*resourceAllocator)};
-  tlasBuilder->CreateResourcesAndWriteBuildCommands(*indexBuffer, 3, *vertexBuffer, 3, *commandBundle);
+  tlasBuilder->CreateResourcesAndWriteBuildCommands(*indexBuffer, grid.GetNumIndices(), *vertexBuffer, grid.GetNumVertices(), *commandBundle);
 
   std::unique_ptr<core::Image> image{resourceAllocator->CreateImage(wnd.GetWidth(), wnd.GetHeight(), true)};
   std::unique_ptr<core::ImageUav> imageUav{device->CreateImageUav(*image)};
@@ -102,8 +97,8 @@ export void RunInlineDxrTest()
 
   fence->Wait();
 
-  PIXEndCapture(false);
-  FreeLibrary(dll);
+  //PIXEndCapture(false);
+  //FreeLibrary(dll);
 
   while (wnd.ProcessEvents())
     ;

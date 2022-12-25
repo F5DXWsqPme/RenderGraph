@@ -18,7 +18,7 @@ export void RunTriangleTest()
 {
   // auto dll = PIXLoadLatestWinPixGpuCapturerLibrary();
   // PIXCaptureParameters params = {};
-  // params.GpuCaptureParameters.FileName = L"C:/oleg/Capture.wpix";
+  // params.GpuCaptureParameters.FileName = L"Capture.wpix";
   // if (!SUCCEEDED(PIXBeginCapture(PIX_CAPTURE_GPU, &params)))
   // {
   //   return 0;

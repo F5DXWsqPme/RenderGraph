@@ -26,7 +26,7 @@ namespace dx12
 
     int Allocate()
     {
-      ProvideChunkAllocationIfNeeded(); 
+      ProvideChunkAllocationIfNeeded();
 
       int chunkId = availableChunks.back();
       Chunk& chunk = chunks[chunkId];

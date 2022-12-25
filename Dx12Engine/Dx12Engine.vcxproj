@@ -283,12 +283,17 @@
     <ClCompile Include="dx12_vertex_buffer_view.ixx" />
     <ClCompile Include="dxr_inline_test.ixx" />
     <ClCompile Include="dxr_test.ixx" />
+    <ClCompile Include="grid.ixx" />
+    <ClCompile Include="heightmap_regular_grid.ixx" />
     <ClCompile Include="initializer.ixx" />
     <ClCompile Include="main.ixx" />
     <ClCompile Include="noncopiable.ixx" />
     <ClCompile Include="core_pso.ixx" />
     <ClCompile Include="core_shader_bytecode.ixx" />
     <ClCompile Include="core_resource.ixx" />
+    <ClCompile Include="picture.ixx" />
+    <ClCompile Include="regular_grid.ixx" />
+    <ClCompile Include="stb_image_implementation.cpp" />
     <ClCompile Include="triangle_test.ixx" />
     <ClCompile Include="window.ixx" />
   </ItemGroup>
@@ -296,6 +301,8 @@
     <FxCompile Include="shaders\InlineRtShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compute</ShaderType>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/Qembed_debug %(AdditionalOptions)</AdditionalOptions>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug-Asan|x64'">Compute</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Compute</ShaderType>
     </FxCompile>
     <FxCompile Include="shaders\PixelShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
@@ -309,6 +316,8 @@
     <FxCompile Include="shaders\RtShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Library</ShaderType>
       <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/Qembed_debug %(AdditionalOptions)</AdditionalOptions>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug-Asan|x64'">Library</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Library</ShaderType>
     </FxCompile>
     <FxCompile Include="shaders\VertexShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
@@ -323,6 +332,9 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="shaders\VsOut.hlsli" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\RenderGraph\Dx12Engine\ext\include\d3dx12.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

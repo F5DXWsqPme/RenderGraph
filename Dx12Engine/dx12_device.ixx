@@ -284,7 +284,7 @@ namespace dx12
       hitGroup->SetHitGroupType(D3D12_HIT_GROUP_TYPE_TRIANGLES);
 
       auto shaderConfig = psoDesc.CreateSubobject<CD3DX12_RAYTRACING_SHADER_CONFIG_SUBOBJECT>();
-      int attributeSize = 2 * sizeof(float); // barycentrics
+      int attributeSize = 2 * sizeof(float);
       shaderConfig->Config(payloadSize, attributeSize);
 
       auto rootSignature = psoDesc.CreateSubobject<CD3DX12_GLOBAL_ROOT_SIGNATURE_SUBOBJECT>();
